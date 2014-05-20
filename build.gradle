@@ -1,0 +1,32 @@
+apply plugin: 'java'
+
+sourceSets {
+  main {
+    java {
+      srcDir 'src/'
+    }
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'com.jcraft:jsch:0.1.46'
+  compile 'mysql:mysql-connector-java:5.1.18'
+}
+
+jar {
+  from(configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }) {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+  }
+
+  manifest {
+    attributes 'Built-Date': new Date(),
+            'Built-JDK': System.getProperty('java.version'),
+            'Main-Class': 'russell.john.Main'
+  }
+}

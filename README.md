@@ -11,7 +11,7 @@ This application can download the entire bitcoin blockchain, and keep it updated
 ## Compile
 
 ```
-$ ./build.sh
+$ gradle jar
 ```
 
 ## Examples
@@ -19,23 +19,23 @@ $ ./build.sh
 Create an empty MYSQL database, and change the jdbc path as necessary.
  Then run
 ```
-java -jar Bitcoin_Updater.jar jdbc:mysql://localhost:3306/Bitcoin username password schema.txt -b
+java -jar build/libs/Bitcoin_Updater.jar jdbc:mysql://localhost:3306/Bitcoin username password schema/schema.txt -b
 ```
 
 #### Usage examples:
 To recursively build the blockchain from scratch.  If the block already exists in the database, it will skip it and continue.  You can think of this option as a kind of consistency checker.
 ```
-java -jar Bitcoin_Updater.jar jdbc:mysql://localhost:3306/Bitcoin username password -i
+java -jar build/libs/Bitcoin_Updater.jar jdbc:mysql://localhost:3306/Bitcoin username password -i
 ```
 
 To recursively update the blockchain.  If the block already exists in the database, the program will terminate
 ```
-java -jar Bitcoin_Updater.jar jdbc:mysql://localhost:3306/Bitcoin username password -c
+java -jar build/libs/Bitcoin_Updater.jar jdbc:mysql://localhost:3306/Bitcoin username password -c
 ```
 
 To update/build the historical market data.  If the historical market data already exists, the program will terminate and go to the next market.
 ```
-java -jar Bitcoin_Updater.jar jdbc:mysql://localhost:3306/Bitcoin username password -h
+java -jar build/libs/Bitcoin_Updater.jar jdbc:mysql://localhost:3306/Bitcoin username password -h
 ```
 
 ##Schema
