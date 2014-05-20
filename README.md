@@ -19,7 +19,7 @@ $ gradle jar
 Create an empty MYSQL database, and change the jdbc path as necessary.
  Then run
 ```
-java -jar build/libs/Bitcoin_Updater.jar jdbc:mysql://localhost:3306/Bitcoin username password schema/schema.txt -b
+$ mysql Bitcoin -u root -p < schema/schema.txt
 ```
 
 #### Usage examples:
