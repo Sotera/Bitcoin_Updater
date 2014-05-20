@@ -15,14 +15,15 @@ $ ./build.sh
 ```
 
 ## Examples
-First time usage:<br/>
-- Create an empty MYSQL database, and change the jdbc path as necessary.
+#### First time usage:
+Create an empty MYSQL database, and change the jdbc path as necessary.
+ Then run
 ```
 java -jar Bitcoin_Updater.jar jdbc:mysql://localhost:3306/Bitcoin username password schema.txt -b
 ```
 
-Usage examples:<br/>
-To recursively build the blockchain from scratch.  If the block already exists in the database, it will skip it and continue.  You can think of this option as a kind of consistency checker.<br/>
+#### Usage examples:
+To recursively build the blockchain from scratch.  If the block already exists in the database, it will skip it and continue.  You can think of this option as a kind of consistency checker.
 ```
 java -jar Bitcoin_Updater.jar jdbc:mysql://localhost:3306/Bitcoin username password -i
 ```
